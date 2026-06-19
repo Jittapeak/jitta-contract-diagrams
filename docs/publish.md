@@ -9,21 +9,18 @@ sequenceDiagram
       participant DB as Database
       participant CDN as CDN
       
-      Pub ->> App: View approved contracts (pool)
-      App -->> Pub: Display available contracts
+      Pub ->>+ App: View approved contracts (pool)
+      App -->>- Pub: Waiting for publisher to select contracts
 
-      Pub ->> App: Select multiple contracts
-      App ->> Server: Send selected contracts
+      Pub ->>+ App: Select pools
+      App ->>+ Server: Send selected pools
 
-      Pub ->> App: Approve publish
-      App ->> Server: Publish selected contracts
-
-      Server ->>+ CDN: Upload contracts
+      Server ->>+ CDN: Upload
       CDN -->>- Server: Return URLs
 
       Server ->>+ DB: Save deployment data
       DB -->>- Server: Saved
 
-      Server -->> App: Return result (version, url, ...)
-      App -->> Pub: Display deployed contract info
+      Server -->>- App: Return Result (version, url, ...)
+      App -->>- Pub: Display deployed contract info
 ```
