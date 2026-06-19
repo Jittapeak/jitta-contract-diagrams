@@ -9,4 +9,5 @@ covering flows, actors, and system interactions.
 - [usecase](docs/usecase.md)
 - [review](docs/review.md)
 - [request changes](docs/change_request.md)
+- [pre-publish contracts](docs/pre-publish.md)
 - [publish contracts](docs/publish.md)
